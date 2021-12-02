@@ -11,7 +11,6 @@ fn sum_array(array: []i64) i64 {
   return sum;
 }
 
-
 pub fn main() !void {
   const values = utils.readInput("input.txt") catch {
     debug.warn("Could not read input", .{});

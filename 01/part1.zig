@@ -1,22 +1,18 @@
 const std = @import("std");
 const debug = std.debug;
 
-pub fn main() !void {
-  const file = try std.fs.cwd().openFile("input.txt", .{});
-  defer file.close();
+const utils = @import("utils.zig");
 
-  var buf_reader = std.io.bufferedReader(file.reader());
-  var in_stream = buf_reader.reader();
-  var buf: [1024]u8 = undefined;
+pub fn main() !void {
+  const values = utils.readInput("input.txt") catch {
+    debug.warn("Could not read input", .{});
+    std.os.exit(1);
+  };
+  defer values.deinit();
 
   var num_increases: i64 = 0;
   var previous: i64 = -1; 
-  while (try in_stream.readUntilDelimiterOrEof(&buf, '\n')) |line| {
-    const current = std.fmt.parseInt(i64, line, 10) catch {
-      debug.warn("Could not parse line: {s}\n", .{ line });
-      std.os.exit(1);
-    };
-
+  for (values.items) |current| {
     if (previous != -1 and current > previous) {
       num_increases += 1;
     }
