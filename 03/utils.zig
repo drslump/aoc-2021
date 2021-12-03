@@ -3,6 +3,10 @@ const fs = std.fs;
 const ArrayList = std.ArrayList;
 const allocator = std.testing.allocator;
 
+pub fn range(len: usize) []const u0 {
+  return @as([*]u0, undefined)[0..len];
+}
+
 /// Parses a text file where each line define a movement.
 pub fn readBinary(path: []const u8) !ArrayList(u64) {
   const contents = try fs.cwd().readFileAlloc(allocator, path, 2 << 16);
