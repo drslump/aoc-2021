@@ -110,7 +110,6 @@ pub fn main() !void {
   const oxygen = try matchValueForPositions(numbers.items, cmpOxygen);
   const co2 = try matchValueForPositions(numbers.items, cmpCO2);
 
-  debug.print("Oxygen/CO2: {d}/{d}\n", .{ oxygen, co2 });
   debug.print("Part2: {d}\n", .{ oxygen * co2 });
   debug.assert(oxygen * co2 == 4996233);
 }
