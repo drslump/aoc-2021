@@ -89,7 +89,6 @@ part2 :: proc(pos: ^Position, movement: Movement) {
   }
 }
 
-
 main :: proc() {
   movements := read_lines("input.txt")
   defer delete(movements)
