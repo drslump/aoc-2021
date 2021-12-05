@@ -1,0 +1,9 @@
+{
+  "collections": [{
+    "name": "core",
+    "path": "/home/drslump/odin/core"
+  }],
+  "enable_document_symbols": true,
+  "enable_hover": true,
+  "enable_format": true
+}

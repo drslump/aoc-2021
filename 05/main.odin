@@ -18,9 +18,11 @@ Segment :: struct {
 
 parse_coords :: proc(s: string) -> Point {
   parts := strings.split(s, ",")
+  assert(len(parts) == 2)
+
   x, ok_x := strconv.parse_int(parts[0], 10)
   if !ok_x {
-    fmt.panicf("could not parse int: %s", parts[1])
+    fmt.panicf("could not parse int: %s", parts[0])
   }
   y, ok_y := strconv.parse_int(parts[1], 10)
   if !ok_y {
