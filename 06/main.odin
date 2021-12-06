@@ -66,7 +66,7 @@ serialize :: proc(fishes: [dynamic]Fish) -> string {
 
 
 main :: proc() {
-  values := read_input("input.txt")
+  values := read_input("sample.txt")
   defer delete(values) 
 
   // printf("Initial state: %s\n", serialize(values))
@@ -79,6 +79,9 @@ main :: proc() {
     simulate_day(&values)
   }
   printf("Part1: %d\n", len(values))
+
+  // XXX not possible to compute part 2 (256 days) with this approach
+  // due to the exponential nature of the problem. Check efactored.odin
 
 }
 
